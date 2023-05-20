@@ -8,8 +8,8 @@
         {
             "js" : ["scripts/content.js"],
             "matches" : [
-                "https://www.k.kyoto-u.ac.jp/student/g/t/entry/zenki*",
-                "https://www.k.kyoto-u.ac.jp/student/g/t/entry/kouki*"
+                "https://www.k.kyoto-u.ac.jp/student/*/entry/zenki*",
+                "https://www.k.kyoto-u.ac.jp/student/*/entry/kouki*"
             ]
         }
     ]
