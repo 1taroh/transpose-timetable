@@ -40,7 +40,7 @@ const partialTable = Array.from(entry_table.rows).slice(startRow, endRow + 1).ma
     const cells = Array.from(row.cells).slice(startCol, endCol + 1);
     // 部分的な行のセルを配列として返す
     return cells.map(function(cell) {
-      return cell;
+      return cell.innerHTML;
     });
 });
 
@@ -51,11 +51,11 @@ for (let i = 0; i < rowCount; i++) {
     if (i < startRow || endRow < i) continue;
 
     for (let j = 0;j < colCount; j++) {
-        // console.log("i=",i," j=",j);
+        console.log("i=",i," j=",j);
         let cell = transposed_entry_table.rows[i].cells[j];
-        // console.log(cell);
-        cell = transposedPartialTable[i-startRow][j];
+        console.log(cell);
+        cell.innerHTML = transposedPartialTable[i-startRow][j];
     }
 }
 
-// console.log(transposed_entry_table)
+console.log(transposed_entry_table)
