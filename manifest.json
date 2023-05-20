@@ -1,0 +1,16 @@
+{
+    "manifest_version" : 3,
+    "name" : "transpose timetable",
+    "version" : "0.0.1",
+    "description" : "Transpose the timetable in KULASIS",
+
+    "content_scripts": [
+        {
+            "js" : ["scripts/content.js"],
+            "matches" : [
+                "https://www.k.kyoto-u.ac.jp/student/g/t/entry/zenki*",
+                "https://www.k.kyoto-u.ac.jp/student/g/t/entry/kouki*"
+            ]
+        }
+    ]
+}
