@@ -35,7 +35,7 @@ const endCol = 5;
 // console.log("entry_table",entry_table);
 
 // テーブルの行を抽出して部分的なテーブルを作成
-const partialTable = Array.from(entry_table.rows).slice(startRow, endRow + 1).map(function(row) {
+const partialContent = Array.from(entry_table.rows).slice(startRow, endRow + 1).map(function(row) {
     // 行のセルを抽出して部分的な行を作成
     const cells = Array.from(row.cells).slice(startCol, endCol + 1);
     // 部分的な行のセルを配列として返す
@@ -44,18 +44,34 @@ const partialTable = Array.from(entry_table.rows).slice(startRow, endRow + 1).ma
     });
 });
 
-const transposedPartialTable = transposeTable(partialTable);
+// テーブルのクラスを抽出して，部分的なclassタグを管理する配列を作成
+const partialClassTypes = Array.from(entry_table.rows).slice(startRow, endRow + 1).map(function(row) {
+  // 行のセルを抽出して部分的な行を作成
+  const cells = Array.from(row.cells).slice(startCol, endCol + 1);
+  // 部分的な行のセルを配列として返す
+  return cells.map(function(cell) {
+    return cell.className;
+  });
+});
+const transposedpartialContent = transposeTable(partialContent);
+const transposedPartialClassTypes = transposeTable(partialClassTypes);
+// console.log("partialClassTypes",partialClassTypes);
+// console.log("transposedPartialClassTypes",transposedPartialClassTypes);
 
 for (let i = 0; i < rowCount; i++) {
     // 抽出していない部分はいじらない
     if (i < startRow || endRow < i) continue;
 
+    // innerHTMLとclassNameをいれていく
     for (let j = 0;j < colCount; j++) {
-        console.log("i=",i," j=",j);
+        // console.log("i=",i," j=",j);
         let cell = transposed_entry_table.rows[i].cells[j];
-        console.log(cell);
-        cell.innerHTML = transposedPartialTable[i-startRow][j];
+        // console.log("before",cell);
+        // console.log("transposedPartialClassTypes[i-startRow][j]",transposedPartialClassTypes[i-startRow][j]);
+        cell.className = transposedPartialClassTypes[i-startRow][j];
+        cell.innerHTML = transposedpartialContent[i-startRow][j];
+        // console.log("after",cell);
     }
 }
 
-console.log(transposed_entry_table)
+// console.log(transposed_entry_table)
