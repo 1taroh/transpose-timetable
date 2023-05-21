@@ -1,7 +1,7 @@
 {
     "manifest_version" : 3,
     "name" : "transpose timetable",
-    "version" : "0.0.1",
+    "version" : "0.1.0",
     "description" : "Transpose the timetable in KULASIS",
 
     "content_scripts": [
