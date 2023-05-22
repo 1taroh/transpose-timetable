@@ -1,8 +1,9 @@
 # transpose-timetable
 KULASISの時間割を転置して見やすくするchrome拡張です．
 
-## 環境
-* chromeで動作確認済み
+## 動作環境
+* chrome
+* 
 
 ## インストール
 1. このレポジトリをgit cloneする．もしくはzipでダウンロードし，解凍する．
